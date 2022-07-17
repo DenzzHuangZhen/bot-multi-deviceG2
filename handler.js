@@ -1533,7 +1533,7 @@ export async function deleteUpdate(message) {
         let chat = global.db.data.chats[msg.chat] || {}
         if (chat.delete)
             return
-            this.sendButton(msg.chat, `Terdeteksi @${participant.split`@`[0]} telah menghapus pesan!`, wm, null, [['disable delete', '/disable delete']], msg, {
+            this.sendButton(msg.key.remoteJid, `Terdeteksi @${participant.split`@`[0]} telah menghapus pesan!`, wm, null, [['disable delete', '/disable delete']], msg, {
                 mentions: [participant]
             })
         this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
