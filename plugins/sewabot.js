@@ -90,15 +90,28 @@ let pree = await generateWAMessageFromContent(m.key.remoteJid,
 {"orderMessage": { "itemCount": 2021,
 "message": text,
 "footerText": wm, 
-"thumbnail": hwaifu.getRandom(),
+"thumbnail": Buffer.alloc(0),
 "surface": 'CATALOG' }},{})
   conn.relayMessage(pree.key.remoteJid,pree.message,{messageId:pree.key.id})
+}
+
+if (command == 'menggrup') {
+if (!text) throw `Teksnya?`
+let preeeeee = await generateWAMessageFromContent(m.key.remoteJid,
+{"groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us',
+"inviteCode": text,
+"groupName": author,
+"footerText": wm,
+"jpegThumbnail": Buffer.alloc(0),
+"caption": 'Group: ' + text}
+}},{})
+  conn.relayMessage(preeeeee.key.remoteJid,preeeeee.message,{messageId:preeeeee.key.id})
 }
 
 if (command == 'mengfake') {
 let tema = args[0]
 let filesize = args[1]
-if (args[0] == 'aud') {
+if (tema == 'aud') {
   let preee = await generateWAMessageFromContent(m.key.remoteJid,
 {"audioMessage": {
 						"url": m.quoted.url,
@@ -115,7 +128,7 @@ if (args[0] == 'aud') {
 }},{})
   conn.relayMessage(preee.key.remoteJid,preee.message,{messageId:preee.key.id})
   }
-  if (args[0] == 'vid') {
+  if (tema == 'vid') {
   let preeee = await generateWAMessageFromContent(m.key.remoteJid,
 {"videoMessage": {
 						"url": m.quoted.url,
@@ -135,7 +148,7 @@ if (args[0] == 'aud') {
 }},{})
   conn.relayMessage(preeee.key.remoteJid,preeee.message,{messageId:preeee.key.id})
   }
-  if (args[0] == 'stick') {
+  if (tema == 'stick') {
   let preeeee = await generateWAMessageFromContent(m.key.remoteJid,
 {"stickerMessage": {
 						"url": m.quoted.url,
@@ -152,11 +165,28 @@ if (args[0] == 'aud') {
 }},{})
   conn.relayMessage(preeeee.key.remoteJid,preeeee.message,{messageId:preeeee.key.id})
   }
+  if (tema == 'img') {
+  let preeeeeee = await generateWAMessageFromContent(m.key.remoteJid,
+{"imageMessage": {
+						"url": m.quoted.url,
+						"mimetype": m.quoted.mimetype,
+						"caption": m.quoted.caption,
+						"fileSha256": m.quoted.fileSha256,
+						"fileLength": filesize,
+						"height": m.quoted.height,
+						"width": m.quoted.width,
+						"mediaKey": m.quoted.mediaKey,
+						"fileEncSha256": m.quoted.fileEncSha256,
+						"directPath": m.quoted.directPath,
+						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
+						"jpegThumbnail": m.quoted.jpegThumbnail
+}},{})
+  conn.relayMessage(preeeeeee.key.remoteJid,preeeeeee.message,{messageId:preeeeeee.key.id})
+  }
   }
 }
-handler.help = ['sewabot']
-handler.tags = ['main']
-handler.command = ['sewabot', 'mengproduk', 'mengorder', 'mengfake']
+
+handler.command = ['sewabot', 'mengproduk', 'mengorder', 'mengfake', 'menggrup']
 
 export default handler
 

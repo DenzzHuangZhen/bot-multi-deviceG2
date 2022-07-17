@@ -10,6 +10,13 @@ if (!text) throw `Gunakan contoh ${usedPrefix + command} Robot`
     throw stiker.toString()
 }
 
+if (command == 'gstatic') {
+if (!text) throw `Gunakan contoh ${usedPrefix + command} 6`
+    let stiker = await sticker(null, global.API(`https://www.gstatic.com/webp/gallery/${text}.webp`), global.packname, global.author)
+    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
+    throw stiker.toString()
+}
+
 if (command == 'mentahan') {
 let res = await fetch(`https://api.imgflip.com/get_memes`)
   let sul = await res.json()
@@ -157,7 +164,12 @@ if (!text) throw `Gunakan contoh ${usedPrefix + command} kucing`
 	rows: [
 	{title: "kucing", rowId: usedPrefix + 'imagekit kucing|' + text},
 	{title: "senyum", rowId: usedPrefix + 'imagekit senyum|' + text},
-	{title: "monyet", rowId: usedPrefix + 'imagekit monyet|' + text}
+	{title: "monyet", rowId: usedPrefix + 'imagekit monyet|' + text},
+	{title: "wp", rowId: usedPrefix + 'imagekit wp|' + text},
+	{title: "wp1", rowId: usedPrefix + 'imagekit wp1|' + text},
+	{title: "wp2", rowId: usedPrefix + 'imagekit wp2|' + text},
+	{title: "wp3", rowId: usedPrefix + 'imagekit wp3|' + text},
+	{title: "wp4", rowId: usedPrefix + 'imagekit wp4|' + text}
 	]
     }
 ]
@@ -174,7 +186,7 @@ conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsap
 
 
 }
-handler.command = handler.help = ['mentahan', 'mim', 'robohash', 'imgkit']
+handler.command = handler.help = ['mentahan', 'mim', 'robohash', 'imgkit', 'gstatic']
 handler.tags = ['maker']
 
 export default handler
