@@ -47,7 +47,7 @@ wa.me/${owner[0]}
   },
   footerText: 'https://s.id/Cerdasin62',
   }},{})
-  conn.relayMessage(prepare.key.remoteJid,prepare.message,{messageId:prepare.key.id})
+  await conn.relayMessage(prepare.key.remoteJid,prepare.message,{messageId:prepare.key.id})
   
   // Kontak
   let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;${author};;;\nFN:${author}\nORG:${author}\nTITLE:\nitem1.TEL;waid=6282195322106:+62 821-9532-2106\nitem1.X-ABLabel:${author}\nX-WA-BIZ-DESCRIPTION:${htjava} Nih owner ku kack yg mengaktifkan aq.\nX-WA-BIZ-NAME:${author}\nEND:VCARD`
@@ -81,7 +81,7 @@ if (!text) throw `Teksnya?`
 	"isForwarded": false
 }
 }},{})
-  conn.relayMessage(prenya.key.remoteJid,prenya.message,{messageId:prenya.key.id})
+  await conn.relayMessage(prenya.key.remoteJid,prenya.message,{messageId:prenya.key.id})
 }
 
 if (command == 'mengorder') {
@@ -92,7 +92,7 @@ let pree = await generateWAMessageFromContent(m.key.remoteJid,
 "footerText": wm, 
 "thumbnail": Buffer.alloc(0),
 "surface": 'CATALOG' }},{})
-  conn.relayMessage(pree.key.remoteJid,pree.message,{messageId:pree.key.id})
+  await conn.relayMessage(pree.key.remoteJid,pree.message,{messageId:pree.key.id})
 }
 
 if (command == 'menggrup') {
@@ -103,9 +103,9 @@ let preeeeee = await generateWAMessageFromContent(m.key.remoteJid,
 "groupName": author,
 "footerText": wm,
 "jpegThumbnail": Buffer.alloc(0),
-"caption": 'Group: ' + text}
+"caption": 'Group: ' + text
 }},{})
-  conn.relayMessage(preeeeee.key.remoteJid,preeeeee.message,{messageId:preeeeee.key.id})
+  await conn.relayMessage(preeeeee.key.remoteJid,preeeeee.message,{messageId:preeeeee.key.id})
 }
 
 if (command == 'mengfake') {
@@ -126,7 +126,7 @@ if (tema == 'aud') {
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp.low,
 "jpegThumbnail": m.quoted.jpegThumbnail
 }},{})
-  conn.relayMessage(preee.key.remoteJid,preee.message,{messageId:preee.key.id})
+  await conn.relayMessage(preee.key.remoteJid,preee.message,{messageId:preee.key.id})
   }
   if (tema == 'vid') {
   let preeee = await generateWAMessageFromContent(m.key.remoteJid,
@@ -146,7 +146,7 @@ if (tema == 'aud') {
 						"jpegThumbnail": m.quoted.jpegThumbnail,
 						"streamingSidecar": m.quoted.streamingSidecar
 }},{})
-  conn.relayMessage(preeee.key.remoteJid,preeee.message,{messageId:preeee.key.id})
+  await conn.relayMessage(preeee.key.remoteJid,preeee.message,{messageId:preeee.key.id})
   }
   if (tema == 'stick') {
   let preeeee = await generateWAMessageFromContent(m.key.remoteJid,
@@ -163,7 +163,7 @@ if (tema == 'aud') {
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"isAnimated": m.quoted.isAnimated
 }},{})
-  conn.relayMessage(preeeee.key.remoteJid,preeeee.message,{messageId:preeeee.key.id})
+  await conn.relayMessage(preeeee.key.remoteJid,preeeee.message,{messageId:preeeee.key.id})
   }
   if (tema == 'img') {
   let preeeeeee = await generateWAMessageFromContent(m.key.remoteJid,
@@ -181,11 +181,10 @@ if (tema == 'aud') {
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"jpegThumbnail": m.quoted.jpegThumbnail
 }},{})
-  conn.relayMessage(preeeeeee.key.remoteJid,preeeeeee.message,{messageId:preeeeeee.key.id})
+  await conn.relayMessage(preeeeeee.key.remoteJid,preeeeeee.message,{messageId:preeeeeee.key.id})
   }
   }
-}
-
+  }
 handler.command = ['sewabot', 'mengproduk', 'mengorder', 'mengfake', 'menggrup']
 
 export default handler

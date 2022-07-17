@@ -12,9 +12,8 @@ if (!text) throw `Gunakan contoh ${usedPrefix + command} Robot`
 
 if (command == 'gstatic') {
 if (!text) throw `Gunakan contoh ${usedPrefix + command} 6`
-    let stiker = await sticker(null, global.API(`https://www.gstatic.com/webp/gallery/${text}.webp`), global.packname, global.author)
-    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-    throw stiker.toString()
+    let stiker = `https://www.gstatic.com/webp/gallery/${text}.webp`
+    await conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
 }
 
 if (command == 'mentahan') {
