@@ -1,26 +1,17 @@
-import fetch from "node-fetch"
-import { readFileSync } from "fs"
+import fetch from 'node-fetch'
+import fs from 'fs'
 
 export async function all(m) {
 
   //Kalo mau menggokil pake ini
   let pp = await this.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
-  let stc1 = readFileSync('./sticker/ynkts1.webp')
-  let stc2 = readFileSync('./sticker/ynkts2.webp')
-  let stc3 = readFileSync('./sticker/ynkts3.webp')
-  let stc4 = readFileSync('./sticker/ynkts4.webp')
-  let stc5 = readFileSync('./sticker/ynkts5.webp')
-  let stc6 = readFileSync('./sticker/ynkts6.webp')
-  let stc7 = readFileSync('./sticker/ynkts7.webp')
-  let stc8 = readFileSync('./sticker/ynkts8.webp')
-  let stc9 = readFileSync('./sticker/ynkts9.webp')
-  let vr = ['stc1', 'stc2', 'stc3', 'stc4', 'stc5', 'stc6', 'stc7', 'stc8', 'stc9']
-  let stc = vr.getRandom()
+
+  let vr = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+  let num = vr.getRandom()
+  let stc = await fs.readFileSync('./sticker/ynkts' + num + '.webp')
 
 if (m.isBaileys) return
     if (m.chat.endsWith('broadcast')) return
-
-    // ketika ditag 
     try {
     let TandaTanya = /^(what|who|why|when|where|how|apa|dimana|kapan|siapa|mengapa|bagaimana)$/i.test(m.text)
         if (TandaTanya && m.isGroup) {
@@ -30,16 +21,16 @@ mediaUrl: 'https://wa.me/6282195322106',
 title: '「 ❔ 」',
 body: wm,
 sourceUrl: 'http://github.com/AyGemuy', thumbnail: await( await fetch(pp)).buffer()
- //Kalo mau ada pp dari sender/pengirimnya
- //Kalo mau ringan pake global.thumb                                                                                                              
-                                                                                                               
-          //thumbnail: await( await fetch(pp)).buffer()
   }
  }}, { quoted: m })
         }
     } catch (e) {
         return
     }
+}
 
-                                
+ function pickRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }

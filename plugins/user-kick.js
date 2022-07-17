@@ -1,5 +1,5 @@
-let handler = async (m, { conn, args }) => {
 import fs from 'fs'
+let handler = async (m, { conn, args }) => {
  let ownerGroup = m.chat.split`-`[0] + '@s.whatsapp.net'
   aki = m.quoted ? [m.quoted.sender] : m.mentionedJid
   let users = aki.filter(u => !(u == ownerGroup || u.includes(conn.user.jid)))
@@ -12,7 +12,7 @@ import fs from 'fs'
 }
 handler.help = ['kick'].map(v => v + ' @user')
 handler.tags = ['group']
-handler.command = /^(kick|\-)$/i
+handler.command = /^(ukick|\u-)$/i
 handler.owner = true
 handler.group = true
 handler.botAdmin = true
