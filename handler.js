@@ -1461,14 +1461,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 title = 'Demote detected'
             text = text.replace('@user', '@' + participants[0].split('@')[0])
             if (chat.detect)
-            /*
-                this.sendMessage(id, text, {
-                    contextInfo: {
-                        mentionedJid: this.parseMention(text)
-                    }
-                })
-                */
-                this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? hwaifu.getRandom() : hwaifu.getRandom(), sgc, 'Group', null, null, [
+                this.sendHydrated(id, text, title + '\n\n' + botdate, hwaifu.getRandom(), sgc, 'Group', null, null, [
       ['🎀 Menu', '/menu'],
       ['🪄 Test', '/ping']
     ], null, false, { mentions: this.parseMention(text) })
@@ -1487,7 +1480,7 @@ export async function groupsUpdate(groupsUpdate) {
         const id = groupUpdate.id
         if (!id) continue
         let chats = global.db.data.chats[id], text = ''
-        if (!chats?.detect) continue
+        if (!chats.detect) continue
             if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '*Deskripsi telah diubah menjadi*\n@desc').replace('@desc', groupUpdate.desc)
             if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '*Subyek telah diubah menjadi*\n@subject').replace('@subject', groupUpdate.subject)
             if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '*Ikon telah diubah menjadi *').replace('@icon', groupUpdate.icon)
@@ -1497,7 +1490,7 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || 'Grup telah semua peserta!')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || 'Grup hanya menjadi admin!')
         if (!text) continue
-        this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? hwaifu.getRandom() : hwaifu.getRandom(), sgc, 'Group', null, null, [
+        this.sendHydrated(id, text, wm + '\n\n' + botdate, hwaifu.getRandom(), sgc, 'Group', null, null, [
       ['🎀 Menu', '/menu'],
       ['🪄 Test', '/ping']
     ], null, false, { mentions: this.parseMention(text) })
@@ -1542,7 +1535,7 @@ global.dfail = (type, m, conn) => {
         rpg: 'RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !',
         restrict: 'Fitur ini di *disable* !'
     }[type]
-    if (msg) return conn.sendHydrated2(m.chat, msg, author, `${logo}`, null, null, `${sgc}`, 'Group', [['Owner', '.donasi']], m)
+    if (msg) return conn.sendHydrated2(m.chat, msg, author, `${logo}`, null, null, `${sgc}`, 'Group', [['Owner', '.owner']], m)
 }
 
 let file = global.__filename(import.meta.url, true)
