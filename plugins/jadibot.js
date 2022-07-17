@@ -19,7 +19,7 @@ const { MessageType } = (await import('@adiwajshing/baileys')).default
       await conn.loadAuthInfo(obj)
       auth = true
     }
-    conn.on('qr', async qr => {
+    conn.ev.on('qr', async qr => {
       let scan = await parent.sendFile(m.chat, await qrcode.toDataURL(qr, { scale: 8 }), 'qrcode.png', 'Scan QR ini untuk jadi bot sementara\n\n1. Klik titik tiga di pojok kanan atas\n2. Ketuk WhatsApp Web\n3. Scan QR ini \nQR Expired dalam 20 detik', m)
       setTimeout(() => {
         parent.deleteMessage(m.chat, scan.key)
