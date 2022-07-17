@@ -3,40 +3,40 @@ let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentM
 
 	const sections = [
    {
-	title: `${dmenub} List Options`,
+	title: `${htki} List Options ${htka}`,
 	rows: [
-	{title: "✨ | Welcome", rowId: `${usedPrefix + command} welcome`},
-	{title: "🚫 | Delete", rowId: `${usedPrefix + command} delete`},
-	{title: "🌎 | Public", rowId: `${usedPrefix + command} public`},
-	{title: "🗣️ | Simi", rowId: `${usedPrefix + command} simi`},
-	{title: "🔗 | AntiLinkWa", rowId: `${usedPrefix + command} antilink`},
-	{title: "🔗 | AntiLinkTik", rowId: `${usedPrefix + command} antilinktik`},
-	{title: "🔗 | AntiLinkYt", rowId: `${usedPrefix + command} antilinkyt`},
-	{title: "🔗 | AntiLinkTel", rowId: `${usedPrefix + command} antilinktel`},
-	{title: "🔗 | AntiLinkFb", rowId: `${usedPrefix + command} antilinkfb`},
-	{title: "🔗 | AntiLinkIg", rowId: `${usedPrefix + command} antilinkig`},
-	{title: "🔗 | AntiLinkHttp", rowId: `${usedPrefix + command} antilinkhttp`},
-	{title: "🚫 | AntiDelete", rowId: `${usedPrefix + command} antidelete`},
-	{title: "👽 | AntiVirtex", rowId: `${usedPrefix + command} antivirtex`},
-	{title: "🤬 | AntiToxic", rowId: `${usedPrefix + command} antitoxic`},
-	{title: "🗿 | AntiSatir", rowId: `${usedPrefix + command} antisatir`},
-	{title: "⏏️ | AutoLevelup", rowId: `${usedPrefix + command} autolevelup`},
-	{title: "🎙️️ | AutoVn", rowId: `${usedPrefix + command} autovn`},
-	{title: "🎙️️ | AutoDelVn", rowId: `${usedPrefix + command} autodelvn`},
-	{title: "📷 | AutoSticker", rowId: `${usedPrefix + command} autosticker`},
-	{title: "⏏️ | AutoUpNews", rowId: `${usedPrefix + command} autoupnews`},
-	{title: "⏏️ | AutoUpAnime", rowId: `${usedPrefix + command} autoupnime`},
-	{title: "❗ | AntiSticker", rowId: `${usedPrefix + command} antisticker`},
-	{title: "👤 | AutoJoin", rowId: `${usedPrefix + command} autojoin`},
-	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
-	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
-	{title: "👤 | WhiteListMyContact", rowId: `${usedPrefix + command} whitelistmycontact`},
-	{title: "❗ | Restrict", rowId: `${usedPrefix + command} restrick`},
-	{title: "😐 | Nyimak", rowId: `${usedPrefix + command} nyimak`},
-	{title: "☑️ | AutoRead", rowId: `${usedPrefix + command} autoread`},
-	{title: "💬 | PcOnly", rowId: `${usedPrefix + command} pconly`},
-	{title: "🏢 | GcOnly", rowId: `${usedPrefix + command} gconly`},
-	{title: "📷 | SwOnly", rowId: `${usedPrefix + command} swonly`},
+	{title: `✨ ${htjava} Welcome`, rowId: `${usedPrefix + command} welcome`},
+	{title: `🚫 ${htjava} Delete`, rowId: `${usedPrefix + command} delete`},
+	{title: `🌎 ${htjava} Public`, rowId: `${usedPrefix + command} public`},
+	{title: `🗣️ ${htjava} Simi`, rowId: `${usedPrefix + command} simi`},
+	{title: `🔗 ${htjava} Anti Link Wa`, rowId: `${usedPrefix + command} antilink`},
+	{title: `🔗 ${htjava} Anti Link Tik`, rowId: `${usedPrefix + command} antilinktik`},
+	{title: `🔗 ${htjava} Anti Link Yt`, rowId: `${usedPrefix + command} antilinkyt`},
+	{title: `🔗 ${htjava} Anti Link Tel`, rowId: `${usedPrefix + command} antilinktel`},
+	{title: `🔗 ${htjava} Anti Link Fb`, rowId: `${usedPrefix + command} antilinkfb`},
+	{title: `🔗 ${htjava} Anti Link Ig`, rowId: `${usedPrefix + command} antilinkig`},
+	{title: `🔗 ${htjava} Anti Link`, rowId: `${usedPrefix + command} antihatetepe`},
+	{title: `🚫 ${htjava} Anti Delete`, rowId: `${usedPrefix + command} antidelete`},
+	{title: `👽 ${htjava} Anti Virtex`, rowId: `${usedPrefix + command} antivirtex`},
+	{title: `🤬 ${htjava} Anti Toxic`, rowId: `${usedPrefix + command} antitoxic`},
+	{title: `🗿 ${htjava} Anti Satir`, rowId: `${usedPrefix + command} antisatir`},
+	{title: `⏏️ ${htjava} Auto Levelup`, rowId: `${usedPrefix + command} autolevelup`},
+	{title: `🎙️️ ${htjava} Auto Vn`, rowId: `${usedPrefix + command} autovn`},
+	{title: `🎙️️ ${htjava} Auto DelVn`, rowId: `${usedPrefix + command} autodelvn`},
+	{title: `📷 ${htjava} Auto Sticker`, rowId: `${usedPrefix + command} autosticker`},
+	{title: `⏏️ ${htjava} Auto Up News`, rowId: `${usedPrefix + command} autoupnews`},
+	{title: `⏏️ ${htjava} Auto Up Anime`, rowId: `${usedPrefix + command} autoupnime`},
+	{title: `❗ ${htjava} Anti Sticker`, rowId: `${usedPrefix + command} antisticker`},
+	{title: `👤 ${htjava} Auto Join`, rowId: `${usedPrefix + command} autojoin`},
+	{title: `🔎 ${htjava} Detect`, rowId: `${usedPrefix + command} detect`},
+	{title: `📑 ${htjava} Document`, rowId: `${usedPrefix + command} document`},
+	{title: `👤 ${htjava} White List My Contact`, rowId: `${usedPrefix + command} whitelistmycontact`},
+	{title: `❗ ${htjava} Restrict`, rowId: `${usedPrefix + command} restrick`},
+	{title: `😐 ${htjava} Nyimak`, rowId: `${usedPrefix + command} nyimak`},
+	{title: `☑️ ${htjava} Auto Read`, rowId: `${usedPrefix + command} autoread`},
+	{title: `💬 ${htjava} PcOnly`, rowId: `${usedPrefix + command} pconly`},
+	{title: `🏢 ${htjava} GcOnly`, rowId: `${usedPrefix + command} gconly`},
+	{title: `📷 ${htjava} SwOnly`, rowId: `${usedPrefix + command} swonly`},
 	]
     },
 ]
@@ -172,7 +172,7 @@ const listMessage = {
       }
       chat.antiLinkIg = isEnable
       break
-      case 'antilinkhttp':
+      case 'antihatetepe':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)

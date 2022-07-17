@@ -89,7 +89,7 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     }
     
     if (chat.antiLinkHttp && isAntiLinkHttp) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkhttp', '/disable antilinkhttp'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antihatetepe', '/disable antihatetepe'], m)
         if (isBotAdmin && bot.restrict) {
             // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
     global.db.data.users[m.sender].limit = 0
