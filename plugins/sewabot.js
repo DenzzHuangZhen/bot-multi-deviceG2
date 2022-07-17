@@ -1,5 +1,4 @@
 import fetch from 'node-fetch'
-import { generateWAMessageFromContent } from '@adiwajshing/baileys'
 let handler = async (m, { conn }) => {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
@@ -10,6 +9,7 @@ let handler = async (m, { conn }) => {
   let b = await conn.profilePictureUrl(owner[0]+'@s.whatsapp.net', 'image').catch((_) => "https://telegra.ph/file/24fa902ead26340f3df2c.png")
   let c = pickRandom([a, b])
   let d = await fetch(c).then(a => a.buffer())
+  const { generateWAMessageFromContent } = (await import('@adiwajshing/baileys')).default
   let prepare = await generateWAMessageFromContent(m.key.remoteJid,{listMessage:{
   title: `${await conn.getName(conn.user.jid)}`,
   description: `👋 Hai ${name}
