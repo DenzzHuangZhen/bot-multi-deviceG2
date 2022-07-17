@@ -1457,7 +1457,7 @@ export async function participantsUpdate({ id, participants, action }) {
   let restext = await gettext.text()
   let katarandom = restext.split('\n')
   
-  this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), gcwangsaf, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
+  this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), sgc, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
       ['🎀 Menu', '/menu'],
       ['🪄 Test', '/ping'],
       ['Ok 🎉\n\n' + katarandom.getRandom() + '\n\n', '...']
@@ -1479,8 +1479,8 @@ export async function participantsUpdate({ id, participants, action }) {
                     externalAdReply: {
                         title: title,
                         body: wm,
-                        thumbnailUrl: hoppai.getRandom(),
-                        sourceUrl: gcwangsaf
+                        thumbnailUrl: hwaifu.getRandom(),
+                        sourceUrl: sgc
                     }
                 }})
             break
@@ -1499,18 +1499,23 @@ export async function groupsUpdate(groupsUpdate) {
         if (!id) continue
         let chats = global.db.data.chats[id], text = ''
         if (!chats?.detect) continue
-            if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '*Description has been changed to*\n@desc').replace('@desc', groupUpdate.desc)
-            if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '*Subject has been changed to*\n@subject').replace('@subject', groupUpdate.subject)
-            if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '*Icon has been changed to*').replace('@icon', groupUpdate.icon)
-            if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '*Group link has been changed to*\n@revoke').replace('@revoke', groupUpdate.revoke)
-            if (groupUpdate.announce == true) text = (chats.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || 'Group has been closed!')
-            if (groupUpdate.announce == false) text = (chats.sAnnounceOff || this.sAnnounceOff || conn.sAnnounceOff || 'Group has been open!')
-            if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || 'Group has been all participants!')
-            if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || 'Group has been only admin!')
+            if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '*Deskripsi telah diubah menjadi*\n@desc').replace('@desc', groupUpdate.desc)
+            if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '*Subyek telah diubah menjadi*\n@subject').replace('@subject', groupUpdate.subject)
+            if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '*Ikon telah diubah menjadi *').replace('@icon', groupUpdate.icon)
+            if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '*Tautan grup telah diubah menjadi*\n@revoke').replace('@revoke', groupUpdate.revoke)
+            if (groupUpdate.announce == true) text = (chats.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || 'Grup telah ditutup!')
+            if (groupUpdate.announce == false) text = (chats.sAnnounceOff || this.sAnnounceOff || conn.sAnnounceOff || 'Grup telah dibuka!')
+            if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || 'Grup telah semua peserta!')
+            if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || 'Grup hanya menjadi admin!')
         if (!text) continue
-        this.sendButton(id, text, wm, null, [['MENU', '/menu']], m, {
-                mentions: this.parseMention(text)
-            })
+        this.reply(id, text, { mentions: this.parseMention(text), contextInfo: {
+                    externalAdReply: {
+                        title: wm,
+                        body: bottime,
+                        thumbnailUrl: hwaifu.getRandom(),
+                        sourceUrl: sgc
+                    }
+                }})
     }
 }
 
@@ -1528,7 +1533,7 @@ export async function deleteUpdate(message) {
         let chat = global.db.data.chats[msg.chat] || {}
         if (chat.delete)
             return
-            this.sendButton(msg.key.remoteJid, `Terdeteksi @${participant.split`@`[0]} telah menghapus pesan!`, wm, null, [['disable delete', '/disable delete']], msg, {
+            this.sendButton(msg.chat, `Terdeteksi @${participant.split`@`[0]} telah menghapus pesan!`, wm, null, [['disable delete', '/disable delete']], msg, {
                 mentions: [participant]
             })
         this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
@@ -1539,20 +1544,20 @@ export async function deleteUpdate(message) {
 
 global.dfail = (type, m, conn) => {
     let msg = {
-        rowner: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan oleh *OWWNER!1!1!*',
-        owner: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan oleh *Owner Bot*!',
+        rowner: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan oleh *OWWNER* !',
+        owner: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan oleh *Owner Bot* !',
         mods: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan oleh *Moderator* !',
         premium: '*AKSES DITOLAK*\nPerintah ini hanya untuk member *Premium* !',
-        group: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan di grup!',
-        private: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan di Chat Pribadi!',
-        admin: '*AKSES DITOLAK*\nPerintah ini hanya untuk *Admin* grup!',
-        botAdmin: '*AKSES DITOLAK*\nJadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
-        unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
-        nsfw: 'NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini!',
-        rpg: 'RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini!',
-        restrict: 'Fitur ini di *disable*!'
+        group: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan di grup !',
+        private: '*AKSES DITOLAK*\nPerintah ini hanya dapat digunakan di Chat Pribadi !',
+        admin: '*AKSES DITOLAK*\nPerintah ini hanya untuk *Admin* grup !',
+        botAdmin: '*AKSES DITOLAK*\nJadikan bot sebagai *Admin* untuk menggunakan perintah ini !',
+        unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !',
+        nsfw: 'NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !',
+        rpg: 'RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !',
+        restrict: 'Fitur ini di *disable* !'
     }[type]
-    if (msg) return conn.sendHydrated2(m.chat, msg, author, null, `${webs}`, 'Website', `${gcwangsaf}`, 'Group', [['Owner', '.donasi']], m)
+    if (msg) return conn.sendHydrated2(m.chat, msg, author, `${logo}`, null, null, `${sgc}`, 'Group', [['Owner', '.donasi']], m)
 }
 
 let file = global.__filename(import.meta.url, true)
