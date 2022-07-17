@@ -1,79 +1,22 @@
-let handler = async (m, { conn, args, participants, groupMetadata }) => {
-let id = m.chat
-let codegc = args[0]
-       if (/^[0-9]{5,16}-[0-9]+@g\.us$/.test(args[0])) chat = args[0]
-       // if (!/^[0-9]{5,16}-[0-9]+@g\.us$/.test(chat)) throw 'Hanya bisa dibuka di grup'
-       // let groupMetadata = await conn.groupMetadata(id)
-       // if (!groupMetadata) throw 'groupMetadata is undefined :\\'
-       // if (!'participants' in groupMetadata) throw 'participants is not defined :('
-       // let me = groupMetadata.participants.find(user => user.id === conn.user.jid)
-       // if (!me) throw 'Aku tidak ada di grup itu :('
-       // if (!m.isGroup) return global.dfail('group', m, conn)
-       let pp = './src/avatar_contact.png'
-       try {
-        pp = await conn.profilePictureUrl(codegc, 'image')
-    } catch (e) {
-    } finally {
-        let { viewonce, antiSticker, antiBadword, isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink } = global.db.data.chats[codegc]
-        let groupAdmins = participants.filter(p => p.admin)
-        let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
-       // const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || codegc.split`-`[0] + '@s.whatsapp.net'
-	    let now = new Date() * 1
-	    let metadata = await conn.groupMetadata(codegc)
-	    console.log(groupMetadata)
-        let text = `*「 Group Information 」*\n
-*ID:* 
-${codegc}
+import fetch from "node-fetch"
+import dhn from 'dhn-api'
+let handler = async(m, { conn }) => {
+   var a = await dhn.KompasNews()
+   var b = JSON.parse(JSON.stringify(a))
+   var c = await conn.rand(b)
+   //var c = b[Math.floor(Math.random() * b.length)]
+   var { berita, berita_url, berita_thumb, berita_jenis, berita_diupload } = c
+   var sell = `📺 *Kompas News*
 
-*Name:* 
-${await conn.getName(codegc)}
-
-*Description:* 
-${metadata.desc}
-
-*Total Members:*
-${participants.length} Member
-
-*Group Owner:* 
-@${codegc.split`-`[0]}
-
-*Group Admin:*
-${listAdmin}
-
-*Group Settings:*
-${isBanned ? '✅' : '❌'} Banned
-${welcome ? '✅' : '❌'} Welcome
-${detect ? '✅' : '❌'} Detect
-${global.db.data.chats[codegc].delete ? '❌' : '✅'} Anti Delete
-${antiLink ? '✅' : '❌'} Anti Link
-
-*Message Settings:*
-Welcome: ${sWelcome}
-Bye: ${sBye}
-Promote: ${sPromote}
-Demote: ${sDemote}
-`.trim()
-
-let ownernya = [`${codegc.split`-`[0]}@s.whatsapp.net`]
-let mentionedJid = groupAdmins.concat(ownernya)
-await conn.sendFile(m.chat, pp, 'pp.jpg', text, m, false, { contextInfo: { mentionedJid: conn.parseMention(text) }})
-      }
-   }
-
-handler.command = /^(mantaugc)$/i
+📢 *Berita:* ${berita}
+📁 *Type News:* ${berita_jenis}
+⌚ *Uploded:* ${berita_diupload}
+🛰 *Source Url:* ${berita_url}`
+   conn.sendButton(m.chat, sell, wm, berita_thumb, [['Kompas News', '.kompasnews']], m, {jpegThumbnail: await(await fetch(berita_thumb)).buffer()})
+}
+handler.help = ['kompasnews']
+handler.tags = ['berita']
+handler.command = /^kompas(news)?$/i
+handler.limit = true
 
 export default handler
-
-
-function msToDate(ms) {
-		temp = ms
-		days = Math.floor(ms / (24*60*60*1000));
-		daysms = ms % (24*60*60*1000);
-		hours = Math.floor((daysms)/(60*60*1000));
-		hoursms = ms % (60*60*1000);
-		minutes = Math.floor((hoursms)/(60*1000));
-		minutesms = ms % (60*1000);
-		sec = Math.floor((minutesms)/(1000));
-		return days+" Hari "+hours+" Jam "+ minutes + " Menit";
-		// +minutes+":"+sec;
-  }

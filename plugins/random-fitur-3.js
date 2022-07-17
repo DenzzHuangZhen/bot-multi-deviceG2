@@ -13,7 +13,9 @@ if (!text) throw `Gunakan contoh ${usedPrefix + command} Robot`
 if (command == 'gstatic') {
 if (!text) throw `Gunakan contoh ${usedPrefix + command} 6`
     let stiker = `https://www.gstatic.com/webp/gallery/${text}.webp`
-    await conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
+    await conn.sendButton(m.chat, `*Result:*`, author, stiker, [
+                ['Next', `${usedPrefix + command}`]
+            ], m)
 }
 
 if (command == 'mentahan') {

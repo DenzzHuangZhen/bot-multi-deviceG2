@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 
-let handler = async (m, { conn, command, text}) => {
+let handler = async (m, { conn, command, args, text}) => {
 const { generateWAMessageFromContent } = (await import('@adiwajshing/baileys')).default
 if (command == 'sewabot') {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -46,7 +46,7 @@ wa.me/${owner[0]}
   businessOwnerJid: nomorown + '@s.whatsapp.net'
   },
   footerText: 'https://s.id/Cerdasin62',
-  }},{})
+  }},{quoted: ftroli})
   await conn.relayMessage(prepare.key.remoteJid,prepare.message,{messageId:prepare.key.id})
   
   // Kontak
@@ -80,7 +80,7 @@ if (!text) throw `Teksnya?`
 	"forwardingScore": 9999,
 	"isForwarded": false
 }
-}},{})
+}},{quoted: ftroli})
   await conn.relayMessage(prenya.key.remoteJid,prenya.message,{messageId:prenya.key.id})
 }
 
@@ -91,7 +91,7 @@ let pree = await generateWAMessageFromContent(m.key.remoteJid,
 "message": text,
 "footerText": wm, 
 "thumbnail": Buffer.alloc(0),
-"surface": 'CATALOG' }},{})
+"surface": 'CATALOG' }},{quoted: ftroli})
   await conn.relayMessage(pree.key.remoteJid,pree.message,{messageId:pree.key.id})
 }
 
@@ -104,7 +104,7 @@ let preeeeee = await generateWAMessageFromContent(m.key.remoteJid,
 "footerText": wm,
 "jpegThumbnail": Buffer.alloc(0),
 "caption": 'Group: ' + text
-}},{})
+}},{quoted: ftroli})
   await conn.relayMessage(preeeeee.key.remoteJid,preeeeee.message,{messageId:preeeeee.key.id})
 }
 
@@ -125,7 +125,7 @@ if (tema == 'aud') {
 "directPath": m.quoted.directPath,
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp.low,
 "jpegThumbnail": m.quoted.jpegThumbnail
-}},{})
+}},{quoted: ftroli})
   await conn.relayMessage(preee.key.remoteJid,preee.message,{messageId:preee.key.id})
   }
   if (tema == 'vid') {
@@ -145,7 +145,7 @@ if (tema == 'aud') {
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"jpegThumbnail": m.quoted.jpegThumbnail,
 						"streamingSidecar": m.quoted.streamingSidecar
-}},{})
+}},{quoted: ftroli})
   await conn.relayMessage(preeee.key.remoteJid,preeee.message,{messageId:preeee.key.id})
   }
   if (tema == 'stick') {
@@ -162,7 +162,7 @@ if (tema == 'aud') {
 						"fileLength": filesize,
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"isAnimated": m.quoted.isAnimated
-}},{})
+}},{quoted: ftroli})
   await conn.relayMessage(preeeee.key.remoteJid,preeeee.message,{messageId:preeeee.key.id})
   }
   if (tema == 'img') {
@@ -180,7 +180,7 @@ if (tema == 'aud') {
 						"directPath": m.quoted.directPath,
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"jpegThumbnail": m.quoted.jpegThumbnail
-}},{})
+}},{quoted: ftroli})
   await conn.relayMessage(preeeeeee.key.remoteJid,preeeeeee.message,{messageId:preeeeeee.key.id})
   }
   }
