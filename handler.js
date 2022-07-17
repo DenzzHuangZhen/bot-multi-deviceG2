@@ -4,8 +4,8 @@ import { fileURLToPath } from 'url'
 import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
-import knights from 'knights-canvas'
 import fetch from 'node-fetch'
+
 /**
  * @type {import('@adiwajshing/baileys')}
  */
@@ -1438,29 +1438,10 @@ export async function participantsUpdate({ id, participants, action }) {
                     } finally {
                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋 Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
-  let wel = await new knights.Welcome()
-                .setUsername(this.getName(user))
-                .setGuildName(groupMetadata.subject)
-                .setGuildIcon(ppgc)
-                .setMemberCount(groupMetadata.participants.length)
-                .setAvatar(pp)
-                .setBackground(thumbnailUrl.getRandon())
-                .toAttachment()
-
-              let lea = await new knights.Goodbye()
-                .setUsername(this.getName(user))
-                .setGuildName(groupMetadata.subject)
-                .setGuildIcon(ppgc)
-                .setMemberCount(groupMetadata.participants.length)
-                .setAvatar(pp)
-                .setBackground(thumbnailUrl.getRandon())
-                .toAttachment()
-  
   let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
   let restext = await gettext.text()
   let katarandom = restext.split('\n')
-  
-  this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? wel.toBuffer() : lea.toBuffer(), sgc, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
+                            this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? pp.toBuffer() : pp.toBuffer(), sgc, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
       ['🎀 Menu', '/menu'],
       ['🪄 Test', '/ping'],
       ['Ok 🎉\n\n' + katarandom.getRandom() + '\n\n', '...']
@@ -1482,7 +1463,7 @@ export async function participantsUpdate({ id, participants, action }) {
                     externalAdReply: {
                         title: title,
                         body: wm,
-                        thumbnailUrl: hwaifu.getRandom(),
+                        thumbnail: hwaifu.getRandom(),
                         sourceUrl: sgc
                     }
                 }})
@@ -1494,14 +1475,15 @@ export async function participantsUpdate({ id, participants, action }) {
  * Handle groups update
  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
  */
-export async function groupsUpdate(groupsUpdate) {
+ 
+export async function groupsUpdate(groupsUpdate, m) {
     if (opts['self'])
         return
     for (const groupUpdate of groupsUpdate) {
         const id = groupUpdate.id
         if (!id) continue
         let chats = global.db.data.chats[id], text = ''
-        if (!chats?.detect) continue
+        if (!chats.detect) continue
             if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '*Deskripsi telah diubah menjadi*\n@desc').replace('@desc', groupUpdate.desc)
             if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '*Subyek telah diubah menjadi*\n@subject').replace('@subject', groupUpdate.subject)
             if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '*Ikon telah diubah menjadi *').replace('@icon', groupUpdate.icon)
@@ -1511,19 +1493,15 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || 'Grup telah semua peserta!')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || 'Grup hanya menjadi admin!')
         if (!text) continue
-        this.reply(id, text, { mentions: this.parseMention(text), contextInfo: {
-                    externalAdReply: {
-                        title: wm,
-                        body: bottime,
-                        thumbnailUrl: hwaifu.getRandom(),
-                        sourceUrl: sgc
-                    }
-                }})
+        this.sendButton(id, text, wm, hwaifu.getRandom(), [['disable detect', '/disable detect']], m, {
+                mentions: await this.parseMention(text)
+            })
     }
 }
 
 /**
-Delete Chat
+ * Handle delete update
+ * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['delete.update']} deleteUpdate 
  */
 export async function deleteUpdate(message) {
     try {
@@ -1560,7 +1538,9 @@ global.dfail = (type, m, conn) => {
         rpg: 'RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !',
         restrict: 'Fitur ini di *disable* !'
     }[type]
-    if (msg) return conn.sendHydrated2(m.chat, msg, author, `${logo}`, null, null, `${sgc}`, 'Group', [['Owner', '.donasi']], m)
+    let dname = await this.getName(m.sender)
+    let dnum = 25
+    if (msg) return conn.sendHydrated2(m.chat, msg, author, hwaifu.getRandom(), null, null, sgc,  'Group', [['Verify', '.daftar ' + dname + '.' + dnum.getRandom()]], m)
 }
 
 let file = global.__filename(import.meta.url, true)
