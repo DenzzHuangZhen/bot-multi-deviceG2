@@ -65,7 +65,8 @@ await conn.sendFile(m.chat, pp, 'pp.jpg', text, m, false, { contextInfo: { menti
 
 handler.command = /^(mantaugc)$/i
 
-module.exports = handler
+export default handler
+
 
 function msToDate(ms) {
 		temp = ms

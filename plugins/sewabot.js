@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import generateWAMessageFromContent from '@adiwajshing/baileys'
+import { generateWAMessageFromContent } from '@adiwajshing/baileys'
 let handler = async (m, { conn }) => {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
@@ -51,11 +51,11 @@ wa.me/${owner[0]}
 await conn.sendMessage(m.chat, { contacts: { displayName: wm, contacts: [{ vcard }] }}, {quoted: m})
 
 }
-handler.help = ['sewa']
+handler.help = ['sewabot']
 handler.tags = ['main']
-handler.command = /^(sewa)$/i
+handler.command = /^(sewabot)$/i
 
-module.exports = handler
+export default handler
 
 function pickRandom(list) {
         return list[Math.floor(Math.random() * list.length)]
