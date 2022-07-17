@@ -10,7 +10,7 @@ export async function all(m) {
                 // m.reply('*Jangan Spam!!*')
                 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
     let name = await this.getName(who)
-    let caption = `👋 No Spam *${name} @${who.split("@")[0]}*`
+    let caption = `👋 Spammer *${name} @${who.split("@")[0]}*`
     this.sendButton(m.chat, caption, wm, null, [['Disable Anti Spam', '/disable antispam']], m, { mentions: this.parseMention(caption) })
             }
             this.spam[m.sender].count = 0
