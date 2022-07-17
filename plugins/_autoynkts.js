@@ -5,8 +5,8 @@ export async function all(m) {
 
   //Kalo mau menggokil pake ini
   let pp = await this.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
-  let rstc = `${Math.floor(Math.random() * 9)}`
-  let stc = readFileSync('./sticker/ynkts' + rstc + '.webp')
+  let vr = 9
+  let stc = readFileSync('./sticker/ynkts' + vr.getRandom() + '.webp')
 
 if (m.isBaileys) return
     if (m.chat.endsWith('broadcast')) return
