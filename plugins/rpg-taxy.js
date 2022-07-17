@@ -136,7 +136,7 @@ setTimeout(() => {
 }
 handler.help = ['grab']
 handler.tags = ['rpg']
-handler.command = /^(grab|megrab)$/i
+handler.command = /^(taksi|taxy|grab|megrab)$/i
 
 export default handler
 

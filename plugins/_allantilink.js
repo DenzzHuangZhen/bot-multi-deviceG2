@@ -3,6 +3,7 @@ const isLinkYt = /youtube.com|youtu.be/i // tambahin sendiri
 const isLinkTel = /t.me/i // tambahin sendiri
 const isLinkFb = /facebook.com|fb.me/i // tambahin sendiri
 const isLinkIg = /instagram.com/i // tambahin sendiri
+const isLinkHttp = /http|https/i // tambahin sendiri
 
 export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
     if (m.isBaileys && m.fromMe)
@@ -15,6 +16,7 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     const isAntiLinkTel = isLinkTel.exec(m.text)
     const isAntiLinkFb = isLinkFb.exec(m.text)
     const isAntiLinkIg = isLinkIg.exec(m.text)
+    const isAntiLinkHttp = isLinkHttp.exec(m.text)
 
     if (chat.antiLinkTik && isAntiLinkTik) {
         await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinktik', '/disable antilinktik'], m)
@@ -23,9 +25,7 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     global.db.data.users[m.sender].limit = 0
     
     await conn.sendButton(m.chat, `*Limit anda di reset ke 0*
-    
     Karena Mengirim Link Tiktok
-    
     Ketik *.limit* untuk cek limit`, wm, null, [
         ['Ngechit', `${usedPrefix}ngechit`]
     ], m)
@@ -39,9 +39,7 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     global.db.data.users[m.sender].limit = 0
     
     await conn.sendButton(m.chat, `*Limit anda di reset ke 0*
-    
     Karena Mengirim Link Youtube
-    
     Ketik *.limit* untuk cek limit`, wm, null, [
         ['Ngechit', `${usedPrefix}ngechit`]
     ], m)
@@ -55,9 +53,7 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     global.db.data.users[m.sender].limit = 0
     
     await conn.sendButton(m.chat, `*Limit anda di reset ke 0*
-    
     Karena Mengirim Link Telegram
-    
     Ketik *.limit* untuk cek limit`, wm, null, [
         ['Ngechit', `${usedPrefix}ngechit`]
     ], m)
@@ -71,9 +67,7 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     global.db.data.users[m.sender].limit = 0
     
     await conn.sendButton(m.chat, `*Limit anda di reset ke 0*
-    
     Karena Mengirim Link Facebook
-    
     Ketik *.limit* untuk cek limit`, wm, null, [
         ['Ngechit', `${usedPrefix}ngechit`]
     ], m)
@@ -87,9 +81,21 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     global.db.data.users[m.sender].limit = 0
     
     await conn.sendButton(m.chat, `*Limit anda di reset ke 0*
-    
     Karena Mengirim Link Instagram
+    Ketik *.limit* untuk cek limit`, wm, null, [
+        ['Ngechit', `${usedPrefix}ngechit`]
+    ], m)
+        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+    }
     
+    if (chat.antiLinkHttp && isAntiLinkHttp) {
+        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkhttp', '/disable antilinkhttp'], m)
+        if (isBotAdmin && bot.restrict) {
+            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    global.db.data.users[m.sender].limit = 0
+    
+    await conn.sendButton(m.chat, `*Limit anda di reset ke 0*
+    Karena Mengirim Link Http
     Ketik *.limit* untuk cek limit`, wm, null, [
         ['Ngechit', `${usedPrefix}ngechit`]
     ], m)

@@ -123,44 +123,6 @@ const inventory = {
 }
 let handler = async (m, { conn, args, command, text, usedPrefix }) => {
 let imgr = flaaa.getRandom()
-  let user = global.db.data.users[m.sender]
-  const tools = Object.keys(inventory.tools).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${typeof inventory.tools[v] === 'object' ? inventory.tools[v][user[v]?.toString()] : `Level(s) ${user[v]}`}`).filter(v => v).join('\n').trim()
-  const items = Object.keys(inventory.items).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v]}`).filter(v => v).join('\n').trim()
-  const dura = Object.keys(inventory.durabi).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v]}`).filter(v => v).join('\n').trim()
-  const crates = Object.keys(inventory.crates).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v]}`).filter(v => v).join('\n').trim()
-  const pets = Object.keys(inventory.pets).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v] >= inventory.pets[v] ? 'Max Levels' : `Level(s) ${user[v]}`}`).filter(v => v).join('\n').trim()
-  const cooldowns = Object.entries(inventory.cooldowns).map(([cd, { name, time }]) => cd in user && `*✧ ${name}*: ${new Date() - user[cd] >= time ? '✅' : '❌'}`).filter(v => v).join('\n').trim()
-  const caption = `
-🧑🏻‍🏫 ᴜsᴇʀ: *${conn.getName(m.sender)}*
-${Object.keys(inventory.others).map(v => user[v] && `⮕ ${global.rpg.emoticon(v)} ${v}: ${user[v]}`).filter(v => v).join('\n')}${tools ? `
-🔖 ᴛᴏᴏʟs :
-${tools}` : ''}${items ? `
-
-🔖 ɪᴛᴇᴍs :
-${items}` : ''}${crates ? `
-
-🔖 ᴄʀᴀᴛᴇs :
-${crates}` : ''}${pets ? `
-
-🔖 ᴩᴇᴛs :
-${pets}` : ''}${cooldowns ? `
-
-♻️ ᴄᴏʟʟᴇᴄᴛ ʀᴇᴡᴀʀᴅs:
-${cooldowns}` : ''}
-*✧ dungeon: ${user.lastdungeon == 0 ? '✅': '❌'}*
-*✧ mining: ${user.lastmining == 0 ? '✅': '❌'}*
-*✧ roket: ${user.lastroket == 0 ? '✅': '❌'}*
-*✧ mancing: ${user.lastfishing == 0 ? '✅': '❌'}*
-*✧ ngojek: ${user.lastngojek == 0 ? '✅': '❌'}*
-*✧ taxy: ${user.lastgrab == 0 ? '✅': '❌'}*
-*✧ nebang: ${user.lastlumber == 0 ? '✅': '❌'}*
-*✧ ngocok: ${user.lastngocok == 0 ? '✅': '❌'}*
-`.trim()
-await conn.sendButton(m.chat, '*━┈━┈━『 INVENTORY 』━┈━┈━*', caption, imgr + 'inventory', [
-[`ᴛʀᴀɴsғᴇʀ`, `.transfer`],
-[`ᴀᴅᴠᴇɴᴛᴜʀᴇ`, `.adventure`]
-], m, {asLocation: true})
-
 if (args[0] == 'all') {
 let member = global.db.data.users[m.sender]
     let healt = member.healt
@@ -234,7 +196,7 @@ let member = global.db.data.users[m.sender]
     let userspet = sortedpet.map(v => v[0])
 
     let str = `
-Inventory *🏷️ Nama:* *(${name})* ${registered ? '(' + name + ') ' : ''} ( @${who.split("@")[0]} )\n
+Inventory *🏷️ Nama:* *(${name})* ( @${who.split("@")[0]} )\n
 ❤️Nyawa: *${healt}*
 ⛏️Pickaxe: *${pickaxe == 0 ? 'Tidak Punya' : '' || pickaxe == 1 ? 'Level 1' : '' || pickaxe == 2 ? 'Level 2' : '' || pickaxe == 3 ? 'Level 3' : '' || pickaxe == 4 ? 'Level 4' : '' || pickaxe == 5 ? 'Level 5 (MAX)' : ''}*
 ⚔️Sword: *${sword == 0 ? 'Tidak Punya' : '' || sword == 1 ? 'Leather Sword' : '' || sword == 2 ? 'Iron Sword' : '' || sword == 3 ? 'Gold Sword' : '' || sword == 4 ? 'Diamond Sword' : '' || sword == 5 ? 'Netherite Sword (MAX)' : ''}*
@@ -267,22 +229,22 @@ Total inv: *${diamond + potion + sampah + makananpet}* item\n
 🐈Kucing: *${kucing == 0 ? 'Tidak Punya' : '' || kucing == 1 ? 'Level 1' : '' || kucing == 2 ? 'Level 2' : '' || kucing == 3 ? 'Level 3' : '' || kucing == 4 ? 'Level 4' : '' || kucing == 5 ? 'Level MAX' : ''}*
 🐶Anjing: *${anjing == 0 ? 'Tidak Punya' : '' || anjing == 1 ? 'Level 1' : '' || anjing == 2 ? 'Level 2' : '' || anjing == 3 ? 'Level 3' : '' || anjing == 4 ? 'Level 4' : '' || anjing == 5 ? 'Level MAX' : ''}*\n\n
 *Proges*\n
-╭────────────────
+${cmenuh}
 │🔱Level *${level}* To Level *${level}*
 │⚜️Exp *${exp}* -> *${level * 100}*
-╰────────────────
-╭────────────────
+${cmenut}
+${cmenuh}
 │🦊Rubah ${rubah == 0 ? 'Tidak Punya' : '' || rubah > 0 && rubah < 5 ? `Level *${rubah}* To level *${rubah + 1}*\n│Exp *${_rubah}* -> *${rubah *100}*` : '' || rubah == 5 ? '*Max Level*' : ''}
-╰────────────────
-╭────────────────
+${cmenut}
+${cmenuh}
 │🐈Kucing ${kucing == 0 ? 'Tidak Punya' : '' || kucing > 0 && kucing < 5 ? `Level *${kucing}* To level *${kucing + 1}*\n│Exp *${_kucing}* -> *${kucing *100}*` : '' || kucing == 5 ? '*Max Level*' : ''}
-╰────────────────
-╭────────────────
+${cmenut}
+${cmenuh}
 │🐎Kuda ${kuda == 0 ? 'Tidak Punya' : '' || kuda > 0 && kuda < 5 ? `Level *${kuda}* To level *${kuda + 1}*\n│Exp *${_kuda}* -> *${kuda *100}*` : '' || kuda == 5 ? '*Max Level*' : ''}
-╰────────────────
-╭────────────────
+${cmenut}
+${cmenuh}
 │🐶Anjing ${anjing == 0 ? 'Tidak Punya' : '' || anjing > 0 && anjing < 5 ? `Level *${anjing}* To level *${anjing + 1}*\n│Exp *${_anjing}* -> *${anjing *100}*` : '' || anjing == 5 ? '*Max Level*' : ''}
-╰────────────────\n\n
+${cmenut}\n\n
 *achievement*
 1.Top level *${userslevel.indexOf(m.sender) + 1}* dari *${userslevel.length}*
 2.Top Money *${usersmoney.indexOf(m.sender) + 1}* dari *${usersmoney.length}*
@@ -305,6 +267,44 @@ Banned: *No*
 `.trim()
     //conn.reply(m.chat, str, m)
     await conn.sendButton(m.chat, '*━┈━┈━『 INVENTORY 』━┈━┈━*', str, imgr + 'inventory', [
+[`ᴛʀᴀɴsғᴇʀ`, `.transfer`],
+[`ᴀᴅᴠᴇɴᴛᴜʀᴇ`, `.adventure`]
+], m, {asLocation: true})
+} else {
+let user = global.db.data.users[m.sender]
+  const tools = Object.keys(inventory.tools).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${typeof inventory.tools[v] === 'object' ? inventory.tools[v][user[v]?.toString()] : `Level(s) ${user[v]}`}`).filter(v => v).join('\n').trim()
+  const items = Object.keys(inventory.items).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v]}`).filter(v => v).join('\n').trim()
+  const dura = Object.keys(inventory.durabi).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v]}`).filter(v => v).join('\n').trim()
+  const crates = Object.keys(inventory.crates).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v]}`).filter(v => v).join('\n').trim()
+  const pets = Object.keys(inventory.pets).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v] >= inventory.pets[v] ? 'Max Levels' : `Level(s) ${user[v]}`}`).filter(v => v).join('\n').trim()
+  const cooldowns = Object.entries(inventory.cooldowns).map(([cd, { name, time }]) => cd in user && `*✧ ${name}*: ${new Date() - user[cd] >= time ? '✅' : '❌'}`).filter(v => v).join('\n').trim()
+  const caption = `
+🧑🏻‍🏫 ᴜsᴇʀ: *${conn.getName(m.sender)}*
+${Object.keys(inventory.others).map(v => user[v] && `⮕ ${global.rpg.emoticon(v)} ${v}: ${user[v]}`).filter(v => v).join('\n')}${tools ? `
+🔖 ᴛᴏᴏʟs :
+${tools}` : ''}${items ? `
+
+🔖 ɪᴛᴇᴍs :
+${items}` : ''}${crates ? `
+
+🔖 ᴄʀᴀᴛᴇs :
+${crates}` : ''}${pets ? `
+
+🔖 ᴩᴇᴛs :
+${pets}` : ''}${cooldowns ? `
+
+♻️ ᴄᴏʟʟᴇᴄᴛ ʀᴇᴡᴀʀᴅs:
+${cooldowns}` : ''}
+*✧ dungeon: ${user.lastdungeon == 0 ? '✅': '❌'}*
+*✧ mining: ${user.lastmining == 0 ? '✅': '❌'}*
+*✧ roket: ${user.lastroket == 0 ? '✅': '❌'}*
+*✧ mancing: ${user.lastfishing == 0 ? '✅': '❌'}*
+*✧ ngojek: ${user.lastngojek == 0 ? '✅': '❌'}*
+*✧ taxy: ${user.lastgrab == 0 ? '✅': '❌'}*
+*✧ nebang: ${user.lastlumber == 0 ? '✅': '❌'}*
+*✧ ngocok: ${user.lastngocok == 0 ? '✅': '❌'}*
+`.trim()
+await conn.sendButton(m.chat, '*━┈━┈━『 INVENTORY 』━┈━┈━*', caption, imgr + 'inventory', [
 [`ᴛʀᴀɴsғᴇʀ`, `.transfer`],
 [`ᴀᴅᴠᴇɴᴛᴜʀᴇ`, `.adventure`]
 ], m, {asLocation: true})
