@@ -1461,11 +1461,17 @@ export async function participantsUpdate({ id, participants, action }) {
                 title = 'Demote detected'
             text = text.replace('@user', '@' + participants[0].split('@')[0])
             if (chat.detect)
+            /*
                 this.sendMessage(id, text, {
                     contextInfo: {
                         mentionedJid: this.parseMention(text)
                     }
                 })
+                */
+                this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? hwaifu.getRandom() : hwaifu.getRandom(), sgc, 'Group', null, null, [
+      ['🎀 Menu', '/menu'],
+      ['🪄 Test', '/ping']
+    ], null, false, { mentions: this.parseMention(text) })
             break
     }
 }
@@ -1491,11 +1497,10 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || 'Grup telah semua peserta!')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || 'Grup hanya menjadi admin!')
         if (!text) continue
-        this.sendMessage(id, text, {
-                    contextInfo: {
-                        mentionedJid: this.parseMention(text)
-                    }
-                })
+        this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? hwaifu.getRandom() : hwaifu.getRandom(), sgc, 'Group', null, null, [
+      ['🎀 Menu', '/menu'],
+      ['🪄 Test', '/ping']
+    ], null, false, { mentions: this.parseMention(text) })
     }
 }
 
