@@ -1533,7 +1533,9 @@ global.dfail = (type, m, conn) => {
         rpg: 'RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !',
         restrict: 'Fitur ini di *disable* !'
     }[type]
-    if (msg) return conn.sendHydrated2(m.chat, msg, author, `${logo}`, null, null, `${sgc}`, 'Group', [['Owner', '.donasi']], m)
+    let dname = await this.getName(m.sender)
+    let dnum = 25
+    if (msg) return conn.sendHydrated2(m.chat, msg, author, hwaifu.getRandom(), null, null, sgc,  'Group', [['Verify', '.daftar ' + dname + '.' + dnum.getRandom()]], m)
 }
 
 let file = global.__filename(import.meta.url, true)
