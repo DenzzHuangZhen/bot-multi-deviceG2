@@ -1438,13 +1438,15 @@ export async function participantsUpdate({ id, participants, action }) {
                     } finally {
                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋 Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
+  
   let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
   let restext = await gettext.text()
   let katarandom = restext.split('\n')
-                            this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? pp.toBuffer() : pp.toBuffer(), sgc, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
+  
+  this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? pp : pp, sgc, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
       ['🎀 Menu', '/menu'],
       ['🪄 Test', '/ping'],
-      ['🎉 Ok\n\n' + katarandom.getRandom() + '\n\n', '...']
+      ['Ok 🎉\n\n' + katarandom.getRandom() + '\n\n', '...']
     ], null, false, { mentions: [user] })
                     }
                 }
@@ -1459,14 +1461,9 @@ export async function participantsUpdate({ id, participants, action }) {
                 title = 'Demote detected'
             text = text.replace('@user', '@' + participants[0].split('@')[0])
             if (chat.detect)
-                this.reply(id, text, { mentions: this.parseMention(text), contextInfo: {
-                    externalAdReply: {
-                        title: title,
-                        body: wm,
-                        thumbnail: hwaifu.getRandom(),
-                        sourceUrl: sgc
-                    }
-                }})
+                this.sendButton(id, text, wm, hwaifu.getRandom(), [['disable detect', '/disable detect']], m, {
+                mentions: await this.parseMention(text)
+            })
             break
     }
 }
@@ -1475,8 +1472,7 @@ export async function participantsUpdate({ id, participants, action }) {
  * Handle groups update
  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
  */
- 
-export async function groupsUpdate(groupsUpdate, m) {
+export async function groupsUpdate(groupsUpdate) {
     if (opts['self'])
         return
     for (const groupUpdate of groupsUpdate) {
@@ -1500,8 +1496,7 @@ export async function groupsUpdate(groupsUpdate, m) {
 }
 
 /**
- * Handle delete update
- * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['delete.update']} deleteUpdate 
+Delete Chat
  */
 export async function deleteUpdate(message) {
     try {
@@ -1538,9 +1533,7 @@ global.dfail = (type, m, conn) => {
         rpg: 'RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !',
         restrict: 'Fitur ini di *disable* !'
     }[type]
-    let dname = await this.getName(m.sender)
-    let dnum = 25
-    if (msg) return conn.sendHydrated2(m.chat, msg, author, hwaifu.getRandom(), null, null, sgc,  'Group', [['Verify', '.daftar ' + dname + '.' + dnum.getRandom()]], m)
+    if (msg) return conn.sendHydrated2(m.chat, msg, author, `${logo}`, null, null, `${sgc}`, 'Group', [['Owner', '.donasi']], m)
 }
 
 let file = global.__filename(import.meta.url, true)
