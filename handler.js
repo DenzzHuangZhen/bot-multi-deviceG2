@@ -1444,7 +1444,7 @@ export async function participantsUpdate({ id, participants, action }) {
                             this.sendHydrated(id, text, wm + '\n\n' + botdate, action === 'add' ? pp.toBuffer() : pp.toBuffer(), sgc, (action == 'add' ? 'Hinata Group' : 'Nitip Gorengan'), user.split`@`[0], 'Telpon', [
       ['🎀 Menu', '/menu'],
       ['🪄 Test', '/ping'],
-      ['Ok 🎉\n\n' + katarandom.getRandom() + '\n\n', '...']
+      ['🎉 Ok\n\n' + katarandom.getRandom() + '\n\n', '...']
     ], null, false, { mentions: [user] })
                     }
                 }
