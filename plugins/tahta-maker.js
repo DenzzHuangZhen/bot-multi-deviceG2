@@ -2,8 +2,8 @@ import fetch from "node-fetch"
 import dhn from 'dhn-api'
 let handler = async(m, { conn }) => {
    var a = await dhn.KompasNews()
-   var b = JSON.parse(JSON.stringify(a))
-   var c = await conn.rand(b)
+   var b = await a.json()
+   var c = b.getRandom()
    //var c = b[Math.floor(Math.random() * b.length)]
    var { berita, berita_url, berita_thumb, berita_jenis, berita_diupload } = c
    var sell = `📺 *Kompas News*
