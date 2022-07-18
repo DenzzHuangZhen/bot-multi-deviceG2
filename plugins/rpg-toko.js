@@ -89,84 +89,84 @@ Contoh penggunaan: _*${usedPrefix}toko buy potion 1*_
 bila sudah tidak ada harganya, berarti sudah tidak bisa dibeli / sudah level max
 🛍️ List Barang:
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *♻ Barang   | 💲 Harga beli*
+*♻ Barang   | 💲 Harga beli*
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *🥤 Potion:* ${potion}
+*🥤 Potion:* ${potion}
 *🍶 Aqua:* ${Baqua}
-│» *🪙  Gold :* ${Bgold}
+*🪙  Gold :* ${Bgold}
 *💎 Diamond:* ${Bdiamond}
-│» *🪨 Batu:* ${Bbatu}
+*🪨 Batu:* ${Bbatu}
 *🪵 Kayu:* ${Bkayu}
-│» *🕸️ String:* ${Bstring}
+*🕸️ String:* ${Bstring}
 *⛓️ Iron:* ${Biron}
-│» *🗑️ Sampah:* ${Bsampah}
+*🗑️ Sampah:* ${Bsampah}
 *📦 Common:* ${Bcommon} 
-│» *🛍️ Uncommon:* ${Buncommon}
+*🛍️ Uncommon:* ${Buncommon}
 *🎁 Mythic:* ${Bmythic}
-│» *🧰 Legendary:* ${Blegendary}
+*🧰 Legendary:* ${Blegendary}
 *📫 Pet:* ${Bpet}
-│» *🥼 Armor:* ${armor}
+*🥼 Armor:* ${armor}
 *🎣 Fishingrod:* ${pancing}
-│» *🪱 Umpan:* ${Bumpan}
+*🪱 Umpan:* ${Bumpan}
 *🌾 Bibit mangga:* ${Bjagung}
-│» *🌾 Bibit apel:* ${Bapel}
+*🌾 Bibit apel:* ${Bapel}
 *🌾 Bibit jeruk:* ${Bjeruk}
-│» *🌾 Bibit pisang:* ${Bapel}
+*🌾 Bibit pisang:* ${Bapel}
 *🌾 Bibit anggur:* ${Banggur}
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *♻ Barang   | 💲 Harga Jual*
+*♻ Barang   | 💲 Harga Jual*
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *🥤 Potion:* ${Spotion}
+*🥤 Potion:* ${Spotion}
 *🪙 Gold:* ${Sgold}
-│» *🧭 Arloji:* ${Sarloji}
+*🧭 Arloji:* ${Sarloji}
 *🪨 Batu:* ${Sbatu}
-│» *🪵 Kayu:* ${Skayu}
+*🪵 Kayu:* ${Skayu}
 *🕸️ String:* ${Sstring}
-│» *⛓️ Iron:* ${Siron}
+*⛓️ Iron:* ${Siron}
 *💎 Diamond:* ${Sdiamond}
-│» *🗑️ Sampah:* ${Ssampah}
+*🗑️ Sampah:* ${Ssampah}
 *📦 Common:* ${Scommon}
-│» *🛍️ Uncommon:* ${Suncommon}
+*🛍️ Uncommon:* ${Suncommon}
 *🎁 Mythic:* ${Smythic}
-│» *🧰 Legendary:* ${Slegendary}
+*🧰 Legendary:* ${Slegendary}
 *📫 Pet:* ${Spet}
-│» *🥭 Mangga:* ${Sjagung}
+*🥭 Mangga:* ${Sjagung}
 *🍎 Apel:* ${Sapel}
-│» *🍊 Jeruk:* ${Sjeruk}
+*🍊 Jeruk:* ${Sjeruk}
 *🍌 Pisang:* ${Sapel}
-│» *🍇 Anggur:* ${Sanggur}
+*🍇 Anggur:* ${Sanggur}
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *🦊 Pet.      | 💲 Harga Beli*
+*🦊 Pet.      | 💲 Harga Beli*
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *🐱 Kucing:* ${Bkucing} 🪙
+*🐱 Kucing:* ${Bkucing} 🪙
 *🐶 Anjing:* ${Banjing} 🪙
-│» *🦊 Fox:* ${Bfox} 🪙 
+*🦊 Fox:* ${Bfox} 🪙 
 *🐴 Kuda:* ${Bkuda} 🪙 
-│» *🐺 Serigala:* ${Bserigala} 🪙
+*🐺 Serigala:* ${Bserigala} 🪙
 *🦜 Phonix:* ${Bphonix} 🪙
-│» *🐎 Centaur:* ${Bcentaur} 🪙
+*🐎 Centaur:* ${Bcentaur} 🪙
 *🦅 Griffin:* ${Bgriffin} 🪙
-│» *🐉 Naga:* ${Bnaga} 🪙
+*🐉 Naga:* ${Bnaga} 🪙
 *🥩 Foodpet:* ${Bfood} 💲
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *🔨 Upgrade & Repair | 💲 Harga*
+*🔨 Upgrade & Repair | 💲 Harga*
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *◪ Upgrade ⏫*
+*◪ Upgrade ⏫*
 *🥼 Armor:* ${uparmor} 💎 ${_armor == 0 ? '(Belum memiliki)' : _armor == 5 ? '( *Level max* )' : ''}
-│» *🎣 Fishingrod:* ${uppancing} 💎
+*🎣 Fishingrod:* ${uppancing} 💎
 ╰▸ *Durability:* ${durfishingrod} ${_pancing == 0 ? '(Belum memiliki)' : _pancing == 5 ? '( *Level max* )' : ''}
-│» *⛏️ Pickaxe:* ${uppickaxe} 💎
+*⛏️ Pickaxe:* ${uppickaxe} 💎
 ╰▸ *Durability:* ${durpickaxe} ${_pickaxe == 0 ? '(Belum memiliki)' : _pickaxe == 5 ? '( *Level max* )' : ''}
-│» *🗡️ Sword:* ${upsword} 💎
+*🗡️ Sword:* ${upsword} 💎
 ╰▸ *Durability:* ${dursword} ${_sword == 0 ? '(Belum memiliki)' : _sword == 5 ? '( *Level max* )' : ''}
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
-│» *◪ Repair 🔨*
+*◪ Repair 🔨*
 *🎣 Fishingrod:* ${refishingrod} 💎 ${_pancing == 0 ? '(Belum memiliki)' : _pancing == 5 ? '( *Level max* )' : ''}
-│»  + ${drefishingrod} Durability 
+ + ${drefishingrod} Durability 
 *⛏️ Pickaxe:* ${repickaxe} 💎 ${_pickaxe == 0 ? '(Belum memiliki)' : _pickaxe == 5 ? '( *Level max* )' : ''}
-│»  + ${drepickaxe} Durability
+ + ${drepickaxe} Durability
 *🗡️ Sword:* ${resword} 💎 ${_sword == 0 ? '(Belum memiliki)' : _sword == 5 ? '( *Level max* )' : ''}
-│»  + ${dresword} Durability
+ + ${dresword} Durability
 ⛊━━━┄┄┄┄┄┄┄┄┄━━━⛊
 `.trim()
     try {

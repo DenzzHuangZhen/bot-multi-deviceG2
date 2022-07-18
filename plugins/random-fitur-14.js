@@ -21,7 +21,7 @@ if (command == 'amazon') {
 if (!text) throw `Contoh:\n${usedPrefix + command} Teks`
 let res = await fetch(`https://leyscoders-api.herokuapp.com/api/amazon-search?q=${text}&apikey=MIMINGANZ`)
 let xx = await res.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 *item:* ${x.item}
 *review:* ${x.review}
@@ -189,7 +189,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
 if (args[0] == 'beritanews') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/berita-news?apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.url}
@@ -201,7 +201,7 @@ await conn.sendButton(m.chat, caption, wm, x.img, [
 if (args[0] == 'antaranews') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/antara-news?apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.url}
@@ -227,7 +227,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cekip?ip=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 ${x.code_country}
 ${x.country}
@@ -247,7 +247,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
 if (args[0] == 'ceritahoror') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cerita-horor?apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.desc}
@@ -259,7 +259,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
 if (args[0] == 'cerpen') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cerpen?apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.pengarang}
@@ -304,7 +304,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuaca?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 *Daerah:* ${x.Daerah}
 *Latitude:* ${x.Latitude}
@@ -325,7 +325,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuttly?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.full_link}
@@ -347,7 +347,7 @@ await conn.sendButton(m.chat, caption, wm, img, [
 if (args[0] == 'drakoron') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/drakor-ongoing?apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.genre}
@@ -402,7 +402,7 @@ gaji: ${v.gaji}
 if (args[0] == 'gempa') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/infogempa?apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 Waktu: ${x.Waktu}
 Lintang: ${x.Lintang}
@@ -566,7 +566,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/mediafire?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 judul: ${x.judul}
 size: ${x.size}
@@ -776,7 +776,7 @@ await conn.sendButton(m.chat, caption, wm, x.result.thumb, [
 }
 if (args[0] == 'ppcouple') {
 let res = await fetch(`https://leyscoders-api.herokuapp.com/api/ppcouple?apikey=MIMINGANZ`)
-let json = await res.json()
+let x = await res.json()
 await conn.sendButton(m.chat, wm, wm, x.result.male, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
             ], m, fdoc)
@@ -801,7 +801,7 @@ await conn.sendButton(m.chat, wm, wm, img, [
 if (args[0] == 'randomquran') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/randomquran?apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 nama: ${x.nama}
 arti: ${x.arti}
@@ -821,7 +821,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/rexdl-search?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 title: ${x.title}
 url: ${x.url}
@@ -837,7 +837,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/rexdl-detail?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 title: ${x.title}
 poster: ${x.poster}
@@ -873,7 +873,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/shopee?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let v = xx.result
+let x = xx.result
 let caption = `*Result:*
 judul: ${x.judul}
 harga: ${x.harga}

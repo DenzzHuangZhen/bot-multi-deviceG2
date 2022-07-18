@@ -1,7 +1,6 @@
 
 import fetch from 'node-fetch'
 import fs from "fs"
-import Canvas from "discord-canvas"
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
@@ -87,7 +86,7 @@ ${spins7}|${spins8}|${spins9}
 }
 handler.help = ['slot', 'jackpot']
 handler.tags = ['rpg', 'game']
-handler.command = /^slot?|jac?kpot$/i
+handler.command = /^slots?|jac?kpot$/i
 
 export default handler
 

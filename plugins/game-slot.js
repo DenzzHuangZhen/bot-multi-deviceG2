@@ -47,9 +47,9 @@ artinya kamu bertaruh 100 XP.
         end = `JACKPOT! 🥳 *+${taruhan + taruhan} XP*`
         users.exp += taruhan
     } else if (a == b || a == c || b == c) {
-        end = `kurang beruntung 👍`
+        end = 'TRY AGAIN!'
     } else {
-        end = `kalah 😥 *-${taruhan} XP*`
+        end = `LOSE 😥 *-${taruhan} XP*`
         users.exp -= taruhan
     }
     users.lastslot = new Date * 1
@@ -64,7 +64,7 @@ ${x[2]} ${y[2]} ${z[2]}`.trim(), wm, null, [[`slot ${args[0]}`, `.slot ${args[0]
 }
 handler.help = ['slot <angka>']
 handler.tags = ['game']
-handler.command = /^(slots?)$/i
+handler.command = /^(slot?)$/i
 export default handler
 
 function msToTime(duration) {

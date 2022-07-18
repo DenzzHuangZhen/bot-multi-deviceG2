@@ -107,7 +107,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 ⚠️ *Warn:* ${warn}
 ⛔ *Banned:* No
 `.trim()
-    conn.sendButton(m.chat, str, wm2, null, [[`Inventory`, `.inv`, `Profile`, `.profile`]], m)
+    await conn.sendButton(m.chat, str, wm2, null, [[`Inventory`, `.inv`, `Profile`, `.profile`]], m)
 }
 handler.help = ['cd','cooldown']
 handler.tags = ['rpg']
