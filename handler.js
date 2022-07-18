@@ -1491,7 +1491,11 @@ export async function groupsUpdate(groupsUpdate, fromMe, m) {
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             //console.log('=============\n\ngroupsUpdate \n\n============\n\n' + await groupUpdate)
             if (!text) continue
-            await this.sendButton(id, text, wm, [['Matikan Fitur', `.off detect`]], global.fgif, { contextInfo: { mentionedJid: this.parseMention(text) }, mentions: await this.parseMention(text) })
+            this.sendMessage(id, text, {
+                    contextInfo: {
+                        mentionedJid: this.parseMention(text)
+                    }
+                })
         }
     }
 
