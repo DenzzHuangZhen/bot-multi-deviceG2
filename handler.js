@@ -1457,11 +1457,10 @@ export async function participantsUpdate({ id, participants, action }) {
             case 'demote':
                 if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
                 text = text.replace('@user', '@' + participants[0].split('@')[0])
-                if (chat.detect) this.sendMessage(id, text, {
-                    contextInfo: {
-                        mentionedJid: this.parseMention(text)
-                    }
-                })
+                if (chat.detect)
+                this.sendButton(m.chat, text, wm, null, [
+                ['Ok', 'huuu']
+            ], m, { mentions: [user] })
                 break
     }
 }
@@ -1491,11 +1490,9 @@ export async function groupsUpdate(groupsUpdate, fromMe, m) {
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             //console.log('=============\n\ngroupsUpdate \n\n============\n\n' + await groupUpdate)
             if (!text) continue
-            this.sendMessage(id, text, {
-                    contextInfo: {
-                        mentionedJid: this.parseMention(text)
-                    }
-                })
+            this.sendButton(m.chat, text, wm, null, [
+                ['Off Detect', '/off detect']
+            ], m)
         }
     }
 
