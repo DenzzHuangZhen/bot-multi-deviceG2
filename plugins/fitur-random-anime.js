@@ -205,8 +205,11 @@ if (command == 'pokemon') {
 let haha = await conn.getFile(`https://sekha.me/api/wallpaper/pokemon?apikey=apirey`)
 await conn.sendButton(m.chat, `Result Nihh *${command}*`.trim(), wm, haha.data, [['🔄 Next 🔄', `/${command}`]], m, fdoc)}
 if (command == 'ppcouple') {
-let haha = await conn.getFile(`https://sekha.me/api/wallpaper/ppcouple?apikey=apirey`)
-await conn.sendButton(m.chat, `Result Nihh *${command}*`.trim(), wm, haha.data, [['🔄 Next 🔄', `/${command}`]], m, fdoc)}
+let hi = await fetch(`https://sekha.me/api/wallpaper/ppcouple?apikey=apirey`)
+let sul = await hi.json()
+await conn.sendButton(m.chat, `Result Nihh *${command}*`.trim(), wm, sul.result.male, [['🔄 Next 🔄', `/${command}`]], m, fdoc)
+await conn.sendButton(m.chat, `Result Nihh *${command}*`.trim(), wm, sul.result.female, [['🔄 Next 🔄', `/${command}`]], m, fdoc)
+}
 if (command == 'programing') {
 let haha = await conn.getFile(`https://sekha.me/api/wallpaper/programing?apikey=apirey`)
 await conn.sendButton(m.chat, `Result Nihh *${command}*`.trim(), wm, haha.data, [['🔄 Next 🔄', `/${command}`]], m, fdoc)}
