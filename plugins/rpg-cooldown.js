@@ -1,4 +1,4 @@
-import { levelling } from '../lib/levelling.js'
+import { xpRange } from '../lib/levelling.js'
 import fetch from 'node-fetch'
 import fs from 'fs'
 
@@ -64,7 +64,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let limit = global.db.data.users[m.sender].limit
     let glimit = global.db.data.users[m.sender].glimit
     let sampah = global.db.data.users[m.sender].sampah
-    let { max } = levelling.xpRange(level, exp, global.multiplier)
+    let { max } = xpRange(level, exp, global.multiplier)
     let name = m.fromMe ? conn.user : conn.contacts[m.sender]
     let sortedmoney = Object.entries(global.db.data.users).sort((a, b) => b[1].money - a[1].money)
     let sortedgold = Object.entries(global.db.data.users).sort((a, b) => b[1].gold - a[1].gold)

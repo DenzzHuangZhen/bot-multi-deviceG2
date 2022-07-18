@@ -1,5 +1,4 @@
 import fetch from 'node-fetch'
-let { MessageType } = (await import('@adiwajshing/baileys')).default
 let wibu = flaaa.getRandom()
 let thumb = await(await fetch(wibu + 'Shop')).buffer()
 const potion = 500
@@ -928,7 +927,7 @@ bila sudah tidak ada harganya, berarti sudah tidak bisa dibeli / sudah level max
         console.log(e)
         if (DevMode) {
             for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
-                conn.sendMessage(jid, 'toko.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
+                conn.reply(jid, 'toko.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', m)
             }
         }
     }

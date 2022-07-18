@@ -2,9 +2,9 @@ import fetch from 'node-fetch'
 
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
 
     if (command == 'caribokep') {
+    if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
     try {
 let f = await fetch(`https://betabotz-api.herokuapp.com/api/search/xvideos?query=${text}&apikey=BetaBotz`)
 let xx = await f.json()
@@ -31,6 +31,7 @@ Link: ${v.link}`.trim()
     }
    
   if (command == 'caribokep2') {
+  if (!text) throw `Contoh penggunaan ${usedPrefix}${command} japan`
 try {
 let f = await fetch(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=9b817532fadff8fc7cb86862&query=${text}`)
 let xx = await f.json()

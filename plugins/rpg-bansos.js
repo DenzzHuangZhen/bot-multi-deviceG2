@@ -1,4 +1,3 @@
-import { levelling } from '../lib/levelling.js'
 import fetch from 'node-fetch'
 import fs from 'fs'
 
