@@ -1460,7 +1460,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 if (chat.detect)
                 this.sendButton(m.chat, text, wm, null, [
                 ['Ok', 'huuu']
-            ], m, { mentions: [user] })
+            ], false, { mentions: [user] })
                 break
     }
 }
@@ -1492,7 +1492,7 @@ export async function groupsUpdate(groupsUpdate, fromMe, m) {
             if (!text) continue
             this.sendButton(m.chat, text, wm, null, [
                 ['Off Detect', '/off detect']
-            ], m)
+            ], false)
         }
     }
 
