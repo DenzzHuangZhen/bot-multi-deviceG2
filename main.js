@@ -28,10 +28,12 @@ import { format } from 'util'
 import { makeWASocket, protoType, serialize } from './lib/simple.js'
 import { Low, JSONFile } from 'lowdb'
 
+/*
 import {
   mongoDB,
   mongoDBV2
 } from './lib/mongoDB.js'
+*/
 import store from './lib/store.js'
 
 const {
@@ -136,10 +138,10 @@ async function connectionUpdate(update) {
   }
   if (global.db.data == null) loadDatabase()
   if (connection == 'open') {
-console.log(chalk.yellow('Successfully connected by ' + global.wm))
+console.log(chalk.yellow('Successfully connected by ' + wm))
 }
   console.log(JSON.stringify(update, null, 4))
-  if (update.receivedPendingNotifications) await this.sendButton('0@s.whatsapp.net', 'Successfully connected', wm, null, [['Menu', '/menu']], m)
+  if (update.receivedPendingNotifications) await this.sendButton('0@s.whatsapp.net', 'Successfully connected', wm, null, [['Menu', '/menu']], false)
 }
 
 
@@ -172,8 +174,8 @@ global.reloadHandler = async function (restatConn) {
     conn.ev.off('creds.update', conn.credsUpdate)
   }
 
-  conn.welcome = '✦━━━━━━[ *WELCOME* ]━━━━━━✦\n\n┏––––––━━━━━━━━•\n│⫹⫺ @subject\n┣━━━━━━━━┅┅┅\n│( 👋 Hallo @user)\n├[ *INTRO* ]—\n│ *Nama:* \n│ *Umur:* \n│ *Gender:*\n┗––––––━━┅┅┅\n\n––––––┅┅ *DESCRIPTION* ┅┅––––––\n@desc'
-  conn.bye = '✦━━━━━━[ *GOOD BYE* ]━━━━━━✦\nSayonara *@user* 👋( ╹▽╹ )'
+  conn.welcome = '✦──[ *WELCOME* ]──✦\n╭───────────⸙\n│⫹⫺ in @subject\n╰┬──────────⸙\n╭┫( 👋 Hallo @user)\n││ \n│┣─[ *INTRO* ]\n││ *Nama:*\n││ *Umur:*\n││ *Gender:*\n│╰──────────⸙\n╰[ *DESCRIPTION* ]\n@desc'
+  conn.bye = '✦──[ *GOODBYE* ]──✦\nSayonara *@user* 👋'
   conn.bye = 'Bye *@user* 👋'
   conn.spromote = '*@user* Sekarang jadi admin!'
   conn.sdemote = '*@user* Sekarang bukan lagi admin!'
