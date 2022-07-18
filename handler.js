@@ -1453,16 +1453,16 @@ export async function participantsUpdate({ id, participants, action }) {
             }
             break
         case 'promote':
-            text = (chat.sPromote || this.spromote || conn.spromote || '*@user* sekarang adalah admin.')
-            title = 'Promote detected'
-        case 'demote':
-            if (!text)
-                text = (chat.sDemote || this.sdemote || conn.sdemote || '*@user* sekarang bukan lagi admin.')
-                title = 'Demote detected'
-            text = text.replace('@user', '@' + participants[0].split('@')[0])
-            if (chat.detect)
-                this.sendMessage(id, { text, mentions: this.parseMention(text) })
-            break
+                text = (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*')
+            case 'demote':
+                if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
+                text = text.replace('@user', '@' + participants[0].split('@')[0])
+                if (chat.detect) this.sendMessage(id, text, {
+                    contextInfo: {
+                        mentionedJid: this.parseMention(text)
+                    }
+                })
+                break
     }
 }
 
@@ -1470,26 +1470,30 @@ export async function participantsUpdate({ id, participants, action }) {
  * Handle groups update
  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
  */
-export async function groupsUpdate(groupsUpdate) {
-    if (opts['self'])
-        return
-    for (const groupUpdate of groupsUpdate) {
-        const id = groupUpdate.id
-        if (!id) continue
-        let chats = global.db.data.chats[id], text = ''
-        if (!chats.detect) continue
-            if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '*Deskripsi telah diubah menjadi*\n@desc').replace('@desc', groupUpdate.desc)
-            if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '*Subyek telah diubah menjadi*\n@subject').replace('@subject', groupUpdate.subject)
-            if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '*Ikon telah diubah menjadi *').replace('@icon', groupUpdate.icon)
-            if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '*Tautan grup telah diubah menjadi*\n@revoke').replace('@revoke', groupUpdate.revoke)
-            if (groupUpdate.announce == true) text = (chats.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || 'Grup telah ditutup!')
-            if (groupUpdate.announce == false) text = (chats.sAnnounceOff || this.sAnnounceOff || conn.sAnnounceOff || 'Grup telah dibuka!')
-            if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || 'Grup telah semua peserta!')
-            if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || 'Grup hanya menjadi admin!')
-        if (!text) continue
-        await this.sendMessage(id, { text, mentions: this.parseMention(text) })
+export async function groupsUpdate(groupsUpdate, fromMe, m) {
+        if (opts['self'] && m.fromMe) return
+            console.log(m)
+        // Ingfo tag orang yg update group
+        for (let groupUpdate of groupsUpdate) {
+            const id = groupUpdate.id
+            const participant = groupUpdate.participants
+            console.log('\n\n=============\n\n In Groups Update \n\n============\n\n'+ `Id: ${id}\nParticipants: ${participant}` + '\n\n==============================\n')
+            if (!id) continue
+            let chats = global.db.data.chats[id], text = ''
+            if (!chats.detect) continue
+            if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '*Description has been changed to*\n@desc').replace('@desc', groupUpdate.desc)
+            if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '*Subject has been changed to*\n@subject').replace('@subject', groupUpdate.subject)
+            if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '*Icon has been changed to*').replace('@icon', groupUpdate.icon)
+            if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '*Group link has been changed to*\n@revoke').replace('@revoke', groupUpdate.revoke)
+            if (groupUpdate.announce == true) text = (chats.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || '*Group has been closed!*')
+            if (groupUpdate.announce == false) text = (chats.sAnnounceOff || this.sAnnounceOff || conn.sAnnounceOff || '*Group has been open!*')
+            if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
+            if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
+            //console.log('=============\n\ngroupsUpdate \n\n============\n\n' + await groupUpdate)
+            if (!text) continue
+            await this.sendButton(id, text, wm, [['Matikan Fitur', `.off detect`]], global.fgif, { contextInfo: { mentionedJid: this.parseMention(text) }, mentions: await this.parseMention(text) })
+        }
     }
-}
 
 /**
 Delete Chat

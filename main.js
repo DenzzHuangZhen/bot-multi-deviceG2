@@ -176,7 +176,6 @@ global.reloadHandler = async function (restatConn) {
 
   conn.welcome = '✦──[ *WELCOME* ]──✦\n╭───────────⸙\n│⫹⫺ in @subject\n╰┬──────────⸙\n╭┫( 👋 Hallo @user)\n││ \n│┣─[ *INTRO* ]\n││ *Nama:*\n││ *Umur:*\n││ *Gender:*\n│╰──────────⸙\n╰[ *DESCRIPTION* ]\n@desc'
   conn.bye = '✦──[ *GOODBYE* ]──✦\nSayonara *@user* 👋'
-  conn.bye = 'Bye *@user* 👋'
   conn.spromote = '*@user* Sekarang jadi admin!'
   conn.sdemote = '*@user* Sekarang bukan lagi admin!'
   conn.sDesc = 'Deskripsi telah diubah menjadi \n@desc'
