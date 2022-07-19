@@ -184,8 +184,8 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     
-    conn.sendHydrated(m.chat, text.trim(), wm + '\n\n' + botdate, hwaifu.getRandom(), gcwangsaf, 'Hinata Group', who.split`@`[0], 'Your Number', [
-      ['🔥 Menu', '/menu'],
+    conn.sendHydrated(m.chat, text.trim(), wm + '\n\n' + botdate, hwaifu.getRandom(), gcwangsaf, 'VanzBotz Group', who.split`@`[0], 'Your Number', [
+      ['😇 Menu', '/menu'],
       ['😎 Owner', '/owner'],
       ['😱 Test', '/ping']
     ], null, false, { mentions: [text] })
