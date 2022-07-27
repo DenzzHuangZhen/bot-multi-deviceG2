@@ -6,13 +6,13 @@ import moment from 'moment-timezone'
 
 /*Oᴡɴᴇʀ number*/
 global.owner = [
-  ['6285380166282', '️Oᴡɴᴇʀ One ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Two ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Three ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Four ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Five ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Six ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Seven ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
+  ['6285747848248', '️Oᴡɴᴇʀ One ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
+  ['6285747848248', '️Oᴡɴᴇʀ Two ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
+  ['6285747848248', '️Oᴡɴᴇʀ Three ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
+  ['6285747848248', '️Oᴡɴᴇʀ Four ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
+  ['6285747848248', '️Oᴡɴᴇʀ Five ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
+  ['6285747848248', '️Oᴡɴᴇʀ Six ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
+  ['6285747848248', '️Oᴡɴᴇʀ Seven ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
   ['6285380166282', '️Oᴡɴᴇʀ Eight ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
   ['6285380166282', '️Oᴡɴᴇʀ Nine ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
   ['6285380166282', '️Oᴡɴᴇʀ Teen ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true]
@@ -71,15 +71,15 @@ let keyalpha = api[Math.floor(Math.random() * api.length)]
 global.apikeys = keyalpha
 
 /*Number*/
-global.nomorbot = '6285295374964'
-global.nomorown = '6285380166282'
-global.namebot = 'VANZ BOTZ'
-global.nameown = 'Oᴡɴᴇʀ KAHFI OFFICIAL'
+global.nomorbot = '6285217380741'
+global.nomorown = '6285747848248'
+global.namebot = 'Freaad BOTZ'
+global.nameown = 'Oᴡɴᴇʀ FerdiX9dev'
 
 /*Watermark*/
-global.wm = '                「 VANZ BOTZ あ⁩ 」'
+global.wm = '                「 Freaad BOTZ あ⁩ 」'
 global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘օառɛʀ˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
-global.wm3 = '⫹⫺ KAHFI OFFICIAL'
+global.wm3 = '⫹⫺ FerdiX9dev'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
@@ -422,7 +422,7 @@ global.htjava = '⫹⫺'
 global.stickpack = '.'
 global.stickauth = `☂︎ ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ\n⫹⫺ Whatsapp BOT\nwa.me/${global.nomorbot}`
 global.packname = 'Cʀᴇᴀᴛᴇᴅ Bʏ'
-global.author = 'KAHFI OFFICIAL X VANZ BOTZ'
+global.author = 'FerdiX9dev'
 global.multiplier = 69
 
 /*Pesan*/
