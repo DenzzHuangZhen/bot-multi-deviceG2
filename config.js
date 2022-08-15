@@ -6,16 +6,11 @@ import moment from 'moment-timezone'
 
 /*Oᴡɴᴇʀ number*/
 global.owner = [
-  ['6285747848248', '️Oᴡɴᴇʀ One ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285747848248', '️Oᴡɴᴇʀ Two ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285747848248', '️Oᴡɴᴇʀ Three ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285747848248', '️Oᴡɴᴇʀ Four ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285747848248', '️Oᴡɴᴇʀ Five ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285747848248', '️Oᴡɴᴇʀ Six ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285747848248', '️Oᴡɴᴇʀ Seven ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Eight ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Nine ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true],
-  ['6285380166282', '️Oᴡɴᴇʀ Teen ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ', true]
+  ['6285642625763', '️Oᴡɴᴇʀ One Xinzuo Fiber', true],
+  ['6285642625763', '️Oᴡɴᴇʀ Twoo Xinzuo Fiber', true],
+  ['6285642625763', '️Oᴡɴᴇʀ Three Xinzuo Fiber', true],
+  ['6285642625763', '️Oᴡɴᴇʀ Four Xinzuo Fiber', true],
+  ['6285642625763', '️Oᴡɴᴇʀ Five Xinzuo Fiber', true],
 ]
 global.mods = []
 global.prems = []
@@ -71,15 +66,15 @@ let keyalpha = api[Math.floor(Math.random() * api.length)]
 global.apikeys = keyalpha
 
 /*Number*/
-global.nomorbot = '6285217380741'
-global.nomorown = '6285747848248'
-global.namebot = 'Freaad BOTZ'
-global.nameown = 'Oᴡɴᴇʀ FerdiX9dev'
+global.nomorbot = '6281391337455'
+global.nomorown ='6285642625763'
+global.namebot = 'Xinzuo Fiber Botz'
+global.nameown = 'Oᴡɴᴇʀ  DenzzXdev'
 
 /*Watermark*/
-global.wm = '                「 Freaad BOTZ あ⁩ 」'
+global.wm = '                「 XF あ⁩ 」'
 global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘օառɛʀ˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
-global.wm3 = '⫹⫺ FerdiX9dev'
+global.wm3 = '⫹⫺ DenzzXdev'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
@@ -374,10 +369,10 @@ global.hwaifu = ['https://i.pinimg.com/originals/ed/34/f8/ed34f88af161e6278993e1
 'https://i.pinimg.com/originals/80/4f/1a/804f1a05f9996c96a2d492b4854b7fd5.jpg']
 
 /*Link*/
-global.sig = 'https://instagram.com/Kahfi_ofc'
-global.sgh = 'https://github.com/kahfi-XD'
-global.sgc = 'https://chat.whatsapp.com/EArOqvYKMvMKB5zdXJFVxg'
-global.sdc = 'https://github.com/VanzBotz'
+global.sig = 'https://instagram.com/xinzuo_bot'
+global.sgh = 'https://github.com/MaHuangZhen'
+global.sgc = 'https://chat.whatsapp.com/D8myLoppX2HJPHVzvKbxCa'
+global.sdc = 'https://github.com/MaHuangZhen'
 global.snh = 'https://youtube.com/channel/UC6GPl9xMWL61NAXQb3HBrRw'
 
 /*Nsfw*/
@@ -420,32 +415,32 @@ global.htjava = '⫹⫺'
 
 /*Watermark*/
 global.stickpack = '.'
-global.stickauth = `☂︎ ᴴ ᴵ ᴺ ᴬ ᵀ ᴬ ⁻ ᴹ ᴰ\n⫹⫺ Whatsapp BOT\nwa.me/${global.nomorbot}`
+global.stickauth = `Xinzuo`
 global.packname = 'Cʀᴇᴀᴛᴇᴅ Bʏ'
-global.author = 'FerdiX9dev'
+global.author = 'DenzzXdev'
 global.multiplier = 69
 
 /*Pesan*/
-global.eror = 'Erorr...'
-global.wait = 'Wait...'
-global.render = 'Render...'
+global.eror = 'Akses Di Tolak...'
+global.wait = 'Tunggu...'
+global.render = 'Rendering...'
 global.webs = 'https://s.id/Cerdasin62/'
 global.logo = 'https://i.pinimg.com/564x/f7/d2/e4/f7d2e48fd59a8c01cd396bfc70b0a2d1.jpg'
-global.gcwangsaf = 'https://chat.whatsapp.com/EArOqvYKMvMKB5zdXJFVxg'
+global.gcwangsaf = 'https://chat.whatsapp.com/D8myLoppX2HJPHVzvKbxCa'
 
 /*Donasi*/
-global.saweria = 'https://saweria.co/kahfiaja'
-global.dana = ['085380166282']
-global.pulsa = ['085380166282']
+global.saweria = ''
+global.dana = ['081391337455']
+global.pulsa = ['081391337455']
 global.trakteer = ''
 global.paypal = ''
 global.gopay = ''
 global.pdana = ''
 global.povo = ''
 global.pgopay = ''
-global.ppulsa = '085380166282'
-global.ppulsa2 = '085380166282'
-global.psaweria = 'https://saweria.co/kahfiaja'
+global.ppulsa = '081391337455'
+global.ppulsa2 = '081391337455'
+global.psaweria = ''
 
 /*Emoji*/
 global.rpg = {
